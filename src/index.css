@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%); /* w3c */
+}
+
+html{
+  height: 100%;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+  overflow-x: hidden;
+  overflow-y: auto;    
+}
+
+.wrapper h1{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.wrapper p{
+  text-align: center;
+  margin-top: 7px;
+  font-weight: bold;
+}
+
+.wrapper .main{
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.wrapper .form-container{
+  width: 500px;
+  height: 340px;
+  background-color: #e4e4e4;
+  margin: 20px auto;
+  padding: 20px;   
+}
+
+.wrapper .form-container .btn{
+  width: 100%;   
+}
+
+.wrapper .view-container{
+  width: 800px;    
+  background:
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+    #fff;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-btn{
+  color: red;
+  cursor: pointer;
+}
+
+
+
+tbody{
+  margin-top: 25px;
+}
+
+.Tilt{
+  background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%); /* w3c */
+  cursor:pointer;
+}
+
+.cads{
+  background:
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+    #fff;
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
