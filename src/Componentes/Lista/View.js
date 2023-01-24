@@ -9,14 +9,15 @@ import {edit} from 'react-icons-kit/feather/edit';
 //callback que recebe como parâmetro cada item original.
 
 export const View = ({produtos, removeUser, handleEditClick}) => {
-    return produtos.map(prod=>(
+    console.log(produtos)
+    return produtos.map((prod, index)=>(
         <tr className='tc' key={prod.codigo}>
             <td>{prod.codigo}</td>
             <td>{prod.categoria}</td>
             <td>{prod.nome}</td>
             <td>{prod.fornecedor}</td>
             <td>{prod.valor}</td>
-            <td className='edit-btn' onClick={(event)=>handleEditClick(event, prod.codigo)}>
+            <td className='edit-btn' onClick={(event)=>handleEditClick(event, index)}>
                 <Icon icon={edit}/>
             </td>
             <td className='delete-btn' onClick={()=>removeUser(prod.codigo)}>

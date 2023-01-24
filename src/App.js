@@ -16,15 +16,15 @@ const App = () => {
     <div >
       <Particles className='particles'
       options={{
-        fpsLimit: 60,
+        fpsLimit: 1,
         interactivity: {
           events: {
             onClick: {
-              enable: true,
+              enable: false,
               mode: "push",
             },
             onHover: {
-              enable: true,
+              enable: false,
               mode: "repulse",
             },
             resize: true,
@@ -61,7 +61,7 @@ const App = () => {
           },
           move: {
             direction: "none",
-            enable: true,
+            enable: false,
             outMode: "bounce",
             random: false,
             speed: 6,
