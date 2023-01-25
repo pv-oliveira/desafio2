@@ -20,6 +20,14 @@ function GlobalProvider({ children }) {
     localStorage.setItem("produtos", JSON.stringify(produtos));
   }, [produtos]);
 
+  //Função para edição de produtos
+  const editUser = (id, data) => {
+    const updatedProdutos = produtos.map((element) => {
+      return element.codigo === id ? data : element;
+    });
+    setProdutos(updatedProdutos);
+  };
+
   //Função para adicionar um novo produto
   function addUser(newItem) {
     setProdutos((prevItems) => [...prevItems, newItem]);
@@ -30,6 +38,7 @@ function GlobalProvider({ children }) {
     const filtProdutos = produtos.filter((element, index) => {
       return element.codigo !== codigo;
     });
+
     setProdutos(filtProdutos);
   };
 
@@ -40,6 +49,7 @@ function GlobalProvider({ children }) {
         produtos,
         removeUser,
         setProdutos,
+        editUser,
       }}
     >
       {children}

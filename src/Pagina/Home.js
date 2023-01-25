@@ -1,17 +1,26 @@
-import React,{useState, useEffect} from 'react';
-import Tabela from './Tabela';
-import { Link } from 'react-router-dom';
-import App from '../App';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Container } from "reactstrap";
 
-
-
-export const Home = () =>{
-
+const Home = () => {
   return (
-    <div>
-      
-    </div>
-  );
-}
+    <Navbar className="cads br3 ba b--black-10 mv7 w-100 w-50-m w-25-l mw6 shadow-5 tc center">
+      <Container>
+        <div href="/">Cadastro de produtos</div>
+        <div className="tc center">
+          <ul className="pl0">
+            <Link className="btn btn-primary ma1" to="/add">
+              Cadastrar Produto
+            </Link>
 
-export default Home;
+            <Link className="btn btn-primary" to="/users">
+              Produtos
+            </Link>
+          </ul>
+        </div>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default Home

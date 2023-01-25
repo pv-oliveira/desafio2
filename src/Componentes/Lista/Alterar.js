@@ -1,61 +1,92 @@
-import React, { useState, useContext, useEffect } from 'react';
-import {Icon} from 'react-icons-kit';
-import {save} from 'react-icons-kit/feather/save';
-import {androidCancel} from 'react-icons-kit/ionicons/androidCancel'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Icon } from "react-icons-kit";
+import { save } from "react-icons-kit/feather/save";
+import { androidCancel } from "react-icons-kit/ionicons/androidCancel";
+import { GlobalContext } from "../../AppContext/GlobalState";
 
+export const Alterar = ({ oldProduto, handleCancelClick }) => {
+  const { editUser } = useContext(GlobalContext);
 
-export const Alterar = ({editFormData, handleEditFormChange, handleCancelClick}) => {
-    console.log(editFormData)
-    const navigate = useNavigate()
-    return (<>
-    <tr>
+  const [formFields, setFormFields] = useState(oldProduto.get());
+
+  const { codigo, categoria, nome, fornecedor, valor } = formFields;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      codigo,
+      categoria,
+      nome,
+      fornecedor,
+      valor,
+    };
+
+    editUser(oldProduto.get().codigo, data);
+    oldProduto.set("");
+  };
+
+  return (
+    <>
+      <tr>
         <td>
-            <input  type="text" 
-                    placeholder='Escreva o codigo' 
-                    name='codigo'
-                    value={editFormData.codigo}
-                    onChange={handleEditFormChange} />
+          <input
+            type="text"
+            placeholder="Escreva o codigo"
+            name="codigo"
+            value={codigo}
+            onChange={handleChange}
+          />
         </td>
         <td>
-            <input  type="text" 
-                    placeholder='Escreva a categoria' 
-                    name='categoria'
-                    value={editFormData.categoria}
-                    onChange={handleEditFormChange}
-                    />
+          <input
+            type="text"
+            placeholder="Escreva a categoria"
+            name="categoria"
+            value={categoria}
+            onChange={(e) => handleChange(e)}
+          />
         </td>
         <td>
-            <input  type="text" 
-                    placeholder='Escreva o nome' 
-                    name='nome'
-                    value={editFormData.nome}
-                    onChange={handleEditFormChange}
-                    />
+          <input
+            type="text"
+            placeholder="Escreva o nome"
+            name="nome"
+            value={nome}
+            onChange={handleChange}
+          />
         </td>
         <td>
-            <input type="text" 
-                    placeholder='Escreva o fornecedor' 
-                    name='fornecedor'
-                    value={editFormData.fornecedor}
-                    onChange={handleEditFormChange}/>
+          <input
+            type="text"
+            placeholder="Escreva o fornecedor"
+            name="fornecedor"
+            value={fornecedor}
+            onChange={handleChange}
+          />
         </td>
         <td>
-            <input  type="text" 
-                        placeholder='Escreva o valor' 
-                        name='valor'
-                        value={editFormData.valor}
-                        onChange={handleEditFormChange}/>
+          <input
+            type="text"
+            placeholder="Escreva o valor"
+            name="valor"
+            value={valor}
+            onChange={handleChange}
+          />
         </td>
-            <td className='Submit'>
-                <Icon icon={save}/>
-            </td>
-            <td type='button' onClick={handleCancelClick}>
-                <Icon icon={androidCancel}/>
-            </td>
-    </tr>
-    <button onClick={navigate(-1)}>voltar</button>
-    </> )
-}
+        <td className="Submit" onClick={(e) => handleSubmit(e)}>
+          <Icon icon={save} />
+        </td>
+        <td type="button" onClick={handleCancelClick}>
+          <Icon icon={androidCancel} />
+        </td>
+      </tr>
+    </>
+  );
+};
 
 export default Alterar;

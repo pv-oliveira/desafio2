@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 // import reportWebVitals from './reportWebVitals';
-import { Route, BrowserRouter } from "react-router-dom";
-import 'tachyons';
-import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter } from "react-router-dom";
+import { GlobalProvider } from "./AppContext/GlobalState";
+import "tachyons";
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // // If you want to start measuring performance in your app, pass a function
