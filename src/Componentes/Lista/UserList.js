@@ -86,9 +86,15 @@ export const UserList = () => {
                     Home
                   </button>
                 </>
-              ) : (
+              ) : (<>
                 <div>Não há produtos cadastrados</div>
-              )
+                <button
+                className="mt4 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3"
+                onClick={onSubmit}
+              >
+                Home
+              </button>
+              </>)
             ) : (
               <Fragment>
                 <AddUser
